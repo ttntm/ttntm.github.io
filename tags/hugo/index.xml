@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on </title>
+    <link>https://ttntm.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 20 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ttntm.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://ttntm.github.io/post/hello-world/</link>
+      <pubDate>Mon, 20 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ttntm.github.io/post/hello-world/</guid>
+      <description>Let&amp;rsquo;s do this I&amp;rsquo;ve had a lot of websites over the years, ranging from more or less official business endeavours like a small record label to more private things like a website for my wedding a while ago. I&amp;rsquo;ve never had a website just for me though, so this is something new.
+Also, I&amp;rsquo;ve never been involved much with giving back to the crowd - meaning all the people posting content like reviews or code snippets online.</description>
+    </item>
+    
+  </channel>
+</rss>
