@@ -1,99 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link rel="preload" href="https://ttntm.github.io/css/page.css" as="style">
-    <link rel="preload" href="https://ttntm.github.io/js/particles.min.js" as="script">
-    <link rel="preconnect" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
-    <link rel="preconnect" href="https://code.jquery.com/jquery-3.3.1.min.js">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
-    <link rel="preconnect" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A journal/blog about web design, IT and related topics.">
-    <meta name="author" content="ttntm">
-    <meta name="keywords" content="web, design, webdesign, blog, it, process, management, senior, consultant, ttntm">
-    <meta name="robots" content="index,follow">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@thet0m">
-    <meta name="twitter:creator" content="@thet0m">
-    <meta name="twitter:title" content="Random Content from Data in Hugo">
-    <meta name="twitter:description" content="An article about pulling random records from a JSON data file in Hugo and using the same data file to build a page from it.">
-    <meta name="twitter:image" content="https://ttntm.github.io/img/blog/default.jpg">
-    <base href="https://ttntm.github.io">
-    <title>ttntm | Random Content from Data in Hugo</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ttntm.github.io/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ttntm.github.io/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ttntm.github.io/img/favicon/favicon-16x16.png">
-    <link rel="mask-icon" href="https://ttntm.github.io/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="theme-color" content="#343a40">
-    
-    <link rel="stylesheet" href="https://ttntm.github.io/css/page.css">
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style></style>
-    <script src="https://ttntm.github.io/js/particles.min.js"></script>
-</head>
-<body>
-<a id="top"></a>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="https://ttntm.github.io"><i class="fas fa-cogs fa-2x text-blue"></i></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    	<div class="navbar-nav">
-      		<a class="text-blue nav-item nav-link " href="https://ttntm.github.io">Home</a>
-					<a class="text-blue nav-item nav-link " href="https://ttntm.github.io/post">Blog</a>
-					
-					<a class="text-blue nav-item nav-link " href="https://ttntm.github.io/about">About</a>
-          <a class="text-blue nav-item nav-link" href="https://ttntm.github.io#contact">Contact</a>
-    	</div>
-  	</div>
-    
-    <a class="text-blue d-none d-lg-block ml-3" href="https://twitter.com/thet0m" data-toggle="tooltip" title="Twitter" rel="noopener" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-    
-    <a class="text-blue d-none d-lg-block ml-3" href="https://github.com/ttntm" data-toggle="tooltip" title="GitHub" rel="noopener" target="_blank"><i class="fab fa-github fa-lg"></i></a>
-    
-    <a class="text-blue d-none d-lg-block ml-3" href="https://www.linkedin.com/in/thomas-h-35773262/" data-toggle="tooltip" title="LinkedIn" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-    
-</nav>
-	<header class="header blog-header">
-		<div class="container">
-			<div class="row justify-content-center blog-title">
-				<div class="col align-self-center py-3 text-md-center text-secondary">
-					<h1 class="text-blue py-1 my-2">Random Content from Data in Hugo</h1>
-					<p class="py-1 my-2">Published 21.08.2018, 5 minute read</p>
-				
-					<p class="text-dark py-1 my-2">An article about pulling random records from a JSON data file in Hugo and using the same data file to build a page from it.</p>
-				
-				</div>
-			</div>
-		</div>
-	</header>
-	<div class="container">
-		<div class="row mt-3">
-			<div class="col pt-3">
-				
-
-<h2 id="data-in-hugo">Data in Hugo</h2>
-
-<p>Hugo comes with the possibility of storing structured content in a data file where it can be pulled from by the template placing it on the site. I&rsquo;ve seen this used for things like pricing tables for example. There&rsquo;s quite a bunch of use cases for random content on a website though, from customer references on a company website to quotes of the day for a literary blog. This use case is going to be what the following article is about.</p>
-
-<h3 id="the-setup">The setup</h3>
-
-<p>Let&rsquo;s assume we&rsquo;re creating a company or product marketing website. Wouldn&rsquo;t it be nice to display an assortment of customer testimonies, success stories or customer logos there? At best, that content should change over time, so that curious readers and repeat) visitors of your site will be encouraged to check out the hypothetical <code>/references</code> section of the site.</p>
-
-<p>For this example, we&rsquo;ll stick to the customer logos, displaying them in a row across the whole page including a link to the <code>/references</code> page where we&rsquo;ll display the complete list as a grid.</p>
-
-<h3 id="the-data">The data</h3>
-
-<p>Our customers are going to be stored in a file called <code>references.json</code> which we&rsquo;re going to place in Hugo&rsquo;s <code>Data</code> folder.</p>
-
-<p>The file&rsquo;s structure is going to look like that:</p>
-
-<pre><code>    [
+<!doctype html><html lang=en><head><meta charset=utf-8><link rel=preload href=https://ttntm.github.io/css/page.css as=style><link rel=preload href=https://ttntm.github.io/js/particles.min.js as=script><link rel=preconnect href=https://use.fontawesome.com/releases/v5.1.0/css/all.css><link rel=preconnect href=https://code.jquery.com/jquery-3.3.1.min.js><link rel=preconnect href=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js><link rel=preconnect href=https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content=ttntm><meta name=robots content=index,follow><meta name=description content="An article about pulling random records from a JSON data file in Hugo and using the same data file to build a page from it."><meta name=keywords content=data,random,hugo,static,site,json,customer,reference,template,code,sample,post,article><meta name=twitter:card content=summary><meta name=twitter:site content=@thet0m><meta name=twitter:creator content=@thet0m><meta name=twitter:title content="Random Content from Data in Hugo"><meta name=twitter:description content="An article about pulling random records from a JSON data file in Hugo and using the same data file to build a page from it."><meta name=twitter:image content=https://ttntm.github.io/img/blog/default.jpg><base href=https://ttntm.github.io><title>ttntm | Random Content from Data in Hugo</title><link rel=apple-touch-icon sizes=180x180 href=https://ttntm.github.io/img/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://ttntm.github.io/img/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://ttntm.github.io/img/favicon/favicon-16x16.png><link rel=mask-icon href=https://ttntm.github.io/img/favicon/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#2b5797><meta name=theme-color content=#343a40><link rel=stylesheet href=https://ttntm.github.io/css/page.css><script src=https://ttntm.github.io/js/particles.min.js></script></head><body><a id=top></a><nav class="navbar navbar-expand-lg navbar-light bg-light"><a class=navbar-brand href=https://ttntm.github.io><i class="fas fa-cogs fa-2x text-blue"></i></a><button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNavAltMarkup aria-controls=navbarNavAltMarkup aria-expanded=false aria-label="Toggle navigation"><span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarNavAltMarkup><div class=navbar-nav><a class="text-blue nav-item nav-link" href=https://ttntm.github.io>Home</a>
+<a class="text-blue nav-item nav-link" href=https://ttntm.github.io/post>Blog</a>
+<a class="text-blue nav-item nav-link" href=https://ttntm.github.io/about>About</a>
+<a class="text-blue nav-item nav-link" href=https://ttntm.github.io#contact>Contact</a></div></div><a class="text-blue d-none d-lg-block ml-3" href=https://twitter.com/thet0m data-toggle=tooltip title=Twitter rel=noopener target=_blank><i class="fab fa-twitter fa-lg"></i></a><a class="text-blue d-none d-lg-block ml-3" href=https://github.com/ttntm data-toggle=tooltip title=GitHub rel=noopener target=_blank><i class="fab fa-github fa-lg"></i></a><a class="text-blue d-none d-lg-block ml-3" href=https://www.linkedin.com/in/thomas-h-35773262/ data-toggle=tooltip title=LinkedIn rel=noopener target=_blank><i class="fab fa-linkedin fa-lg"></i></a></nav><header class="header blog-header"><div class=container><div class="row justify-content-center blog-title"><div class="col align-self-center py-3 text-md-center text-secondary"><h1 class="text-blue py-1 my-2">Random Content from Data in Hugo</h1><p class="py-1 my-2">Published 21.08.2018, 5 minute read<p class="text-dark py-1 my-2">An article about pulling random records from a JSON data file in Hugo and using the same data file to build a page from it.</div></div></div></header><div class=container><div class="row mt-3"><div class="col pt-3"><h2 id=data-in-hugo>Data in Hugo</h2><p>Hugo comes with the possibility of storing structured content in a data file where it can be pulled from by the template placing it on the site. I&rsquo;ve seen this used for things like pricing tables for example. There&rsquo;s quite a bunch of use cases for random content on a website though, from customer references on a company website to quotes of the day for a literary blog. This use case is going to be what the following article is about.<h3 id=the-setup>The setup</h3><p>Let&rsquo;s assume we&rsquo;re creating a company or product marketing website. Wouldn&rsquo;t it be nice to display an assortment of customer testimonies, success stories or customer logos there? At best, that content should change over time, so that curious readers and repeat) visitors of your site will be encouraged to check out the hypothetical <code>/references</code> section of the site.<p>For this example, we&rsquo;ll stick to the customer logos, displaying them in a row across the whole page including a link to the <code>/references</code> page where we&rsquo;ll display the complete list as a grid.<h3 id=the-data>The data</h3><p>Our customers are going to be stored in a file called <code>references.json</code> which we&rsquo;re going to place in Hugo&rsquo;s <code>Data</code> folder.<p>The file&rsquo;s structure is going to look like that:<pre><code>    [
         {
             &quot;custName&quot;: &quot;Contoso AG&quot;,
             &quot;custDesc&quot;: &quot;Absolutely generic products and services.&quot;,
@@ -102,34 +10,12 @@
         },
         ...
     ]
-</code></pre>
-
-<p>The customer logos are going to be stored in <code>static/img/cust/</code>, their file extension should be the same across the board (i.e. all PNG images) and their name should correspond to what&rsquo;s stored as <code>custLogo</code> in the JSON file.</p>
-
-<p>If you are going to have many different file extensions, it may be best to store the file name including its extension in your JSON file.</p>
-
-<h3 id="the-templates">The templates</h3>
-
-<p>We&rsquo;re going to use 2 kinds of templates, one <em>partial</em> to display the random selection from our data file wherever we see fit and one full template for the <code>/references</code> page including all the customer details.</p>
-
-<h4 id="the-partial">The partial</h4>
-
-<p>Our partial&rsquo;s purpose shall be obtaining 6 random customer logos and displaying them in a row next to each other.</p>
-
-<p>The code for this procedure could look like that:</p>
-
-<pre><code>    {{- range $i, $content := $.Site.Data.references | shuffle | first 6 -}}
+</code></pre><p>The customer logos are going to be stored in <code>static/img/cust/</code>, their file extension should be the same across the board (i.e. all PNG images) and their name should correspond to what&rsquo;s stored as <code>custLogo</code> in the JSON file.<p>If you are going to have many different file extensions, it may be best to store the file name including its extension in your JSON file.<h3 id=the-templates>The templates</h3><p>We&rsquo;re going to use 2 kinds of templates, one <em>partial</em> to display the random selection from our data file wherever we see fit and one full template for the <code>/references</code> page including all the customer details.<h4 id=the-partial>The partial</h4><p>Our partial&rsquo;s purpose shall be obtaining 6 random customer logos and displaying them in a row next to each other.<p>The code for this procedure could look like that:<pre><code>    {{- range $i, $content := $.Site.Data.references | shuffle | first 6 -}}
         &lt;div class=&quot;col&quot;&gt;
             &lt;img class=&quot;customer-img&quot; src=&quot;/img/cust/{{ $content.custLogo }}.png&quot; alt=&quot;{{ $content.custName }}&quot; title=&quot;{{ $content.custName }}&quot;&gt;
         &lt;/div&gt;
     {{ end }}
-</code></pre>
-
-<p>The selection of the random items is going to be triggered by the website build and each new build will create another 6 logos.</p>
-
-<p>A possible implementation of the whole selection, opening with a heading and followed by some button leading to the <code>/references</code> page could look like this then:</p>
-
-<pre><code>    &lt;div class=&quot;row&quot;&gt;
+</code></pre><p>The selection of the random items is going to be triggered by the website build and each new build will create another 6 logos.<p>A possible implementation of the whole selection, opening with a heading and followed by some button leading to the <code>/references</code> page could look like this then:<pre><code>    &lt;div class=&quot;row&quot;&gt;
             &lt;div class=&quot;col text-center&quot;&gt;
                 &lt;h2&gt;Customer References&lt;/h2&gt;
                 &lt;p&gt;These are only some of our customers...&lt;/p&gt;
@@ -144,17 +30,7 @@
             &lt;/div&gt;
         {{ end }}
     &lt;/div&gt;
-</code></pre>
-
-<p>In order to use this newly created partial, we&rsquo;ll store it as <code>rnd-customers.html</code> in <code>/themes/[theme-name]/layouts/partials/</code> of our Hugo site. After that, it&rsquo;s available wherever we would like to display it using the syntax <code>{{ partial &quot;rnd-customers.html&quot; . }}</code>.</p>
-
-<h4 id="the-template">The template</h4>
-
-<p>Now that we have got our random content, let&rsquo;s see how to build a page from the JSON file as well.</p>
-
-<p>In order to do that, we&rsquo;ll have to make sure that the <code>/references</code> page exists. We&rsquo;ll also have to specify a specific template for it in front matter. The markdown file could look like this:</p>
-
-<pre><code>    +++
+</code></pre><p>In order to use this newly created partial, we&rsquo;ll store it as <code>rnd-customers.html</code> in <code>/themes/[theme-name]/layouts/partials/</code> of our Hugo site. After that, it&rsquo;s available wherever we would like to display it using the syntax <code>{{ partial &quot;rnd-customers.html&quot; . }}</code>.<h4 id=the-template>The template</h4><p>Now that we have got our random content, let&rsquo;s see how to build a page from the JSON file as well.<p>In order to do that, we&rsquo;ll have to make sure that the <code>/references</code> page exists. We&rsquo;ll also have to specify a specific template for it in front matter. The markdown file could look like this:<pre><code>    +++
     title = &quot;References&quot;
     layout = &quot;reference&quot;
     description = &quot;Information regarding our references&quot;
@@ -162,11 +38,7 @@
 
     ## Reference Customers
     ...
-</code></pre>
-
-<p>The respective template <code>references.html</code> is stored in the <code>/layouts/</code> folder and looks like that:</p>
-
-<pre><code>    {{ partial &quot;head.html&quot; . }}
+</code></pre><p>The respective template <code>references.html</code> is stored in the <code>/layouts/</code> folder and looks like that:<pre><code>    {{ partial &quot;head.html&quot; . }}
     {{ partial &quot;header.html&quot; . }}
         &lt;header class=&quot;header&quot;&gt;
             &lt;!-- Page Header Content --&gt;
@@ -190,121 +62,4 @@
         &lt;/div&gt;
     {{ partial &quot;contact.html&quot; . }}
     {{ partial &quot;footer.html&quot; . }}
-</code></pre>
-
-<p>In order to have rows of 3 items in a 12 column grid that are equally spaced, I have added the <code>$counter</code> that will make sure to add a <code>&lt;div class=&quot;clearfix&quot;&gt;</code> after every 3 items. Depending on the CSS you&rsquo;re using, this may not be necessary - I used Bootstrap 3 in my example above and it was necessary to have each row of 3 customers line up straight.</p>
-
-<p>As you may have noticed, I removed most classes that were not essential for a basic understanding of the concept from the code examples above. So, if you&rsquo;re going to use them, please make sure to check carefully and add the necessary class definitions.</p>
-
-<h3 id="conclusion">Conclusion</h3>
-
-<p>Working with data in Hugo is a very convenient thing to do, as the examples above may have been able to demonstrate. I&rsquo;m glad I was able to discover this approach just at the right time - the thought of doing the same thing with jQuery at runtime doesn&rsquo;t seem very appealing to me anymore honestly.</p>
-
-			</div>
-		</div>
-				<div class="row mt-3 mb-3 blog-meta">
-			<div class="col-sm-12 col-md mt-3 mb-3 text-left">
-				<ul class="list-inline my-0">
-					<li class="list-inline-item">
-						<h5 class="my-0">Share this Article:</h5>
-					</li>
-					<li class="list-inline-item">
-						<a href="https://twitter.com/intent/tweet?text=Random%20Content%20from%20Data%20in%20Hugo&amp;url=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Share on Twitter" data-toggle="tooltip" data-placement="bottom" rel="noopener" target="_blank"><i class="fab fa-twitter-square fa-lg"></i></a>
-					</li>
-					<li class="list-inline-item">
-						<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f&amp;title=Random%20Content%20from%20Data%20in%20Hugo" title="Share on LinkedIn" data-toggle="tooltip" data-placement="bottom" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-					</li>
-					<li class="list-inline-item">
-						<a href="https://plus.google.com/share?url=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Share on Google+" data-toggle="tooltip" data-placement="bottom" rel="noopener" target="_blank"><i class="fab fa-google-plus-square fa-lg"></i></a>
-					</li>
-					<li class="list-inline-item">
-						<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Share on Facebook" data-toggle="tooltip" data-placement="bottom" rel="noopener" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
-					</li>
-					<li class="list-inline-item">
-						<a href="mailto:?subject=Random%20Content%20from%20Data%20in%20Hugo&amp;body=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Send as Email" data-toggle="tooltip" data-placement="bottom" data-proofer-ignore=""><i class="fas fa-envelope-square fa-lg"></i></a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-12 col-md mt-3 mb-3 text-md-right">
-				
-				<ul class="list-inline my-0">
-					<li class="list-inline-item">
-						<h5 class="my-0">Tags: </h5>
-					</li>
-					<li class="list-inline-item">
-					<a href="https://ttntm.github.io/tags/hugo">hugo</a>, <a href="https://ttntm.github.io/tags/post">post</a>, <a href="https://ttntm.github.io/tags/howto">howto</a>
-					</li>
-				</ul>
-				
-			</div>
-		</div>
-				<div class="row mt-3 mb-5">
-			<div class="col-6 mt-3 align-self-left text-left">
-			
-				<a class="btn btn-outline-secondary shadow-sm px-3" href="https://ttntm.github.io/post/hello-world/"><i class="fas fa-angle-double-left fa-xs"></i>&nbsp;&nbsp;Previous Post</a>
-			
-			</div>
-			
-			<div class="col-6 mt-3 align-self-right text-right">
-			
-			</div>
-		</div>
-	</div>
-<footer class="footer  text-dark">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12 col-md mt-3 order-2 order-md-1 text-center text-md-left">
-				<p>&copy; ttntm 2018, built with <a href="https://gohugo.io" rel="noopener" target="_blank">Hugo&nbsp;<i class="fas fa-external-link-alt fa-xs"></i></a></p>
-			</div>
-			<div class="col-sm-12 col-md mt-0 order-1 order-md-2 text-center align-self-center">
-				<ul class="nav justify-content-center">
-					<li class="nav-item">
-						<a class="text-blue nav-link" href="https://ttntm.github.io">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="text-blue nav-link" href="https://ttntm.github.io/post">Blog</a>
-					</li>
-					
-					<li class="nav-item">
-							<a class="text-blue nav-link" href="https://ttntm.github.io/about">About</a>
-						</li>
-					<li>
-						<a class="page-scroll text-blue nav-link" href="" title="Back to Top">Back to Top</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-12 col-md mt-3 order-3 order-md-3 text-center text-md-right">
-				<ul class="list-inline">
-					<li class="list-inline-item"><a class="text-blue" href="javascript:linkTo_UnCryptMailto('nbjmup;uuounAqspuponbjm/dpn');" data-toggle="tooltip" title="Email"><i class="fas fa-envelope fa-lg"></i></a></li>
-				
-    				<li class="list-inline-item"><a class="text-blue" href="https://twitter.com/thet0m" data-toggle="tooltip" title="Twitter" rel="noopener" target="_blank"><i class="fab fa-twitter fa-lg"></i></a></li>
-				
-    				<li class="list-inline-item"><a class="text-blue" href="https://github.com/ttntm" data-toggle="tooltip" title="GitHub" rel="noopener" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
-				
-    				<li class="list-inline-item"><a class="text-blue" href="https://www.linkedin.com/in/thomas-h-35773262/" data-toggle="tooltip" title="LinkedIn" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a></li>
-				
-    			</ul>
-			</div>			
-		</div>
-	</div>
-</footer>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-    $('a.page-scroll').each(function(){
-	    $(this).click(function(){ 
-	        $('html,body').animate({ scrollTop: 0 }, 'slow');
-	        return false; 
-	    });
-	});
-</script>
-<script> 
-    function UnCryptMailto(t){for(var n=0,o="",r=0;r<t.length;r++)8364<=(n=t.charCodeAt(r))&&(n=128),o+=String.fromCharCode(n-1);return o}function linkTo_UnCryptMailto(t){location.href=UnCryptMailto(t)}
-</script>
-</body>
-</html>
+</code></pre><p>In order to have rows of 3 items in a 12 column grid that are equally spaced, I have added the <code>$counter</code> that will make sure to add a <code>&lt;div class=&quot;clearfix&quot;&gt;</code> after every 3 items. Depending on the CSS you&rsquo;re using, this may not be necessary - I used Bootstrap 3 in my example above and it was necessary to have each row of 3 customers line up straight.<p>As you may have noticed, I removed most classes that were not essential for a basic understanding of the concept from the code examples above. So, if you&rsquo;re going to use them, please make sure to check carefully and add the necessary class definitions.<h3 id=conclusion>Conclusion</h3><p>Working with data in Hugo is a very convenient thing to do, as the examples above may have been able to demonstrate. I&rsquo;m glad I was able to discover this approach just at the right time - the thought of doing the same thing with jQuery at runtime doesn&rsquo;t seem very appealing to me anymore honestly.</div></div><div class="row mt-3 mb-3 blog-meta"><div class="col-sm-12 col-md mt-3 mb-3 text-left"><ul class="list-inline my-0"><li class=list-inline-item><h5 class=my-0>Share this Article:</h5><li class=list-inline-item><a href="https://twitter.com/intent/tweet?text=Random%20Content%20from%20Data%20in%20Hugo&amp;url=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Share on Twitter" data-toggle=tooltip data-placement=bottom rel=noopener target=_blank><i class="fab fa-twitter-square fa-lg"></i></a><li class=list-inline-item><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f&amp;title=Random%20Content%20from%20Data%20in%20Hugo" title="Share on LinkedIn" data-toggle=tooltip data-placement=bottom rel=noopener target=_blank><i class="fab fa-linkedin fa-lg"></i></a><li class=list-inline-item><a href="https://plus.google.com/share?url=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Share on Google+" data-toggle=tooltip data-placement=bottom rel=noopener target=_blank><i class="fab fa-google-plus-square fa-lg"></i></a><li class=list-inline-item><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Share on Facebook" data-toggle=tooltip data-placement=bottom rel=noopener target=_blank><i class="fab fa-facebook fa-lg"></i></a><li class=list-inline-item><a href="mailto:?subject=Random%20Content%20from%20Data%20in%20Hugo&amp;body=https%3a%2f%2fttntm.github.io%2fpost%2fhugo-random-content-from-data%2f" title="Send as Email" data-toggle=tooltip data-placement=bottom data-proofer-ignore><i class="fas fa-envelope-square fa-lg"></i></a></ul></div><div class="col-sm-12 col-md mt-3 mb-3 text-md-right"><ul class="list-inline my-0"><li class=list-inline-item><h5 class=my-0>Tags:</h5><li class=list-inline-item><a href=https://ttntm.github.io/tags/hugo>hugo</a>, <a href=https://ttntm.github.io/tags/post>post</a>, <a href=https://ttntm.github.io/tags/howto>howto</a></ul></div></div><div class="row mt-3 mb-5"><div class="col-6 mt-3 align-self-left text-left"><a class="btn btn-outline-secondary shadow-sm px-3" href=https://ttntm.github.io/post/hello-world/><i class="fas fa-angle-double-left fa-xs"></i>&nbsp;&nbsp;Previous Post</a></div><div class="col-6 mt-3 align-self-right text-right"></div></div></div><footer class="footer  text-dark"><div class=container-fluid><div class=row><div class="col-sm-12 col-md mt-3 order-2 order-md-1 text-center text-md-left"><p>&copy; ttntm 2018, built with <a href=https://gohugo.io rel=noopener target=_blank>Hugo&nbsp;<i class="fas fa-external-link-alt fa-xs"></i></a></div><div class="col-sm-12 col-md mt-0 order-1 order-md-2 text-center align-self-center"><ul class="nav justify-content-center"><li class=nav-item><a class="text-blue nav-link" href=https://ttntm.github.io>Home</a><li class=nav-item><a class="text-blue nav-link" href=https://ttntm.github.io/post>Blog</a><li class=nav-item><a class="text-blue nav-link" href=https://ttntm.github.io/about>About</a><li><a class="page-scroll text-blue nav-link" href title="Back to Top">Back to Top</a></ul></div><div class="col-sm-12 col-md mt-3 order-3 order-md-3 text-center text-md-right"><ul class=list-inline><li class=list-inline-item><a class=text-blue href="javascript:linkTo_UnCryptMailto('nbjmup;uuounAqspuponbjm/dpn');" data-toggle=tooltip title=Email><i class="fas fa-envelope fa-lg"></i></a><li class=list-inline-item><a class=text-blue href=https://twitter.com/thet0m data-toggle=tooltip title=Twitter rel=noopener target=_blank><i class="fab fa-twitter fa-lg"></i></a><li class=list-inline-item><a class=text-blue href=https://github.com/ttntm data-toggle=tooltip title=GitHub rel=noopener target=_blank><i class="fab fa-github fa-lg"></i></a><li class=list-inline-item><a class=text-blue href=https://www.linkedin.com/in/thomas-h-35773262/ data-toggle=tooltip title=LinkedIn rel=noopener target=_blank><i class="fab fa-linkedin fa-lg"></i></a></ul></div></div></div></footer><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.1.0/css/all.css integrity=sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.3.1.min.js integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js integrity=sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em crossorigin=anonymous></script><script>$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip();});$('a.page-scroll').each(function(){$(this).click(function(){$('html,body').animate({scrollTop:0},'slow');return false;});});</script><script>function UnCryptMailto(t){for(var n=0,o="",r=0;r<t.length;r++)8364<=(n=t.charCodeAt(r))&&(n=128),o+=String.fromCharCode(n-1);return o}function linkTo_UnCryptMailto(t){location.href=UnCryptMailto(t)}</script></body></html>
